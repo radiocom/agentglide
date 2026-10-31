@@ -1,0 +1,28 @@
+# Preserved workspace content, outside the AgentGlide project.
+/prototype/
+/.skills/
+
+# Project-local dependency sources, downloads, caches, logs and test evidence.
+/deps/
+/.agentglide/
+/build/
+/dist/
+/.vfs/
+/tests/runs/
+/tests/*-runs/
+/node_modules/
+/.cache/
+/.venv/
+__pycache__/
+*.log
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+
+# Local editor and credential files.
+/.vs/
+/.vscode/
+.env
+.env.*
