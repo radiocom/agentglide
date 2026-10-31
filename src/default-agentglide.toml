@@ -1,0 +1,32 @@
+# agentglide <BASE> <OVERLAY> creates this file once; subsequent launches never replace it.
+version = 1
+
+[overlay]
+name = "My overlay"
+# Metadata only: never sent to the agent as a task.
+description = "Independent changes to the bound Base directory."
+
+[agent]
+type = "codex" # codex, claude or copilot
+model = "gpt-6-luna"
+# Environment template, not an engine requirement. Claude uses /v1/messages;
+# when switching to claude use base_url = "http://127.0.0.1:1010".
+base_url = "http://127.0.0.1:1010/v1"
+instructions = "Work only in the Base working directory. Do not modify external paths."
+# executable = 'C:\path\to\codex.exe' # optional; otherwise discover on PATH
+# credential_env = "MY_MODEL_KEY" # optional: name of an explicitly supplied env var
+
+[agent.codex]
+reasoning_effort = "low"
+approval_policy = "on-request"
+
+[agent.claude]
+effort = "low"
+permission_mode = "default"
+
+[agent.copilot]
+provider_type = "openai"
+wire_api = "responses"
+reasoning_effort = "low"
+# Set true explicitly for --non-interactive. Interactive default asks approval.
+allow_all_tools = false
